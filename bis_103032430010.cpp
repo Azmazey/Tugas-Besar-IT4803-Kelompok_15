@@ -1,7 +1,7 @@
 #include "bis.h"
 #include <iostream>
 using namespace std;
-
+cout<<"cek";
 void createList(List &L){
     L.first = nullptr;
 }
