@@ -12,7 +12,7 @@ address createElement(infotype x){
     return P;
 }
 void insertFirst(List &L, address p){
-    if (L.first == NULL) {
+    if (L.first == nullptr) {
         L.first = P;
     } else {
         P->next = L.first;

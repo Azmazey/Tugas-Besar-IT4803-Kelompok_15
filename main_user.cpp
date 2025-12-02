@@ -26,4 +26,4 @@ void menuUser(){
             // continue for another case here
         }
     }
-}
+} halo;

@@ -16,7 +16,7 @@ struct elmlistPenumpang{
 };
 struct listPenumpang{
     adrPenumpang first;
-    adrPenumpang last
+    adrPenumpang last;
 };
 
 void createListPenumpang(listPenumpang &L);
