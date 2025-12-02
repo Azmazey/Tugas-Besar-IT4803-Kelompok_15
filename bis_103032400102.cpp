@@ -51,6 +51,13 @@ address findBus(List L, string namaBus){
 }
 
 address showAll(List L){
-    return L.first;
+    address P = L.first;
+    while (P != nullptr) {
+        cout << "Nama Bus : " << P->info.namaBus << endl;
+        cout << "Rute     : " << P->info.rute << endl;
+        cout << "Kapasitas: " << P->info.kapasitas << endl;
+        cout << "------------------------" << endl;
+        P = P->next;
+    }
 }
 
