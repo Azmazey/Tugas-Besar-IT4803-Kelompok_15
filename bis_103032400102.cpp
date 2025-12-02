@@ -3,24 +3,24 @@
 
 using namespace std;
 
-void deleteFirst(List &L, address &p){
+void deleteFirst(listBis &L, adrBis &P){
     if (L.first == nullptr) {
-        p = nullptr;
+        P = nullptr;
     } else {
-        p = L.first;
-        L.first = p->next;
-        p->next = nullptr;
+        P = L.first;
+        L.first = P->next;
+        P->next = nullptr;
     }
 }
 
-void deleteLast(List &L, address &p){
+void deleteLast(listBis &L, adrBis &P){
     if (L.first == nullptr) {
-        p = nullptr;
+        P = nullptr;
     } else if (L.first->next == nullptr){
-        p = L.first;
+        P = L.first;
         L.first = nullptr;
     } else {
-        address Q = L.first;
+        adrBis Q = L.first;
         while (Q->next->next != nullptr){
             Q = Q->next;
         }
@@ -29,31 +29,31 @@ void deleteLast(List &L, address &p){
     }
 }
 
-void deleteAfter(List &L, address prec, address &p){
+void deleteAfter(listBis &L, adrBis prec, adrBis &P){
     if (prec == nullptr || prec->next == nullptr) {
-        p = nullptr;
+        P = nullptr;
     } else {
-        p = prec->next;
-        prec->next = p->next;
-        p->next = nullptr;
+        P = prec->next;
+        prec->next = P->next;
+        P->next = nullptr;
     }
 }
 
-address findBus(List L, string namaBus){
-    address p = L.first;
-    while (p != nullptr) {
-        if (p->info.namaBus == namaBus){
+address findBis(listBis L, string cariNama){
+    adrBis P = L.first;
+    while (P != nullptr) {
+        if (P->info.namaBis == cariNama){
             return P;
         }
-        p = p->next;
+        P = P->next;
     }
     return nullptr;
 }
 
-address showAll(List L){
-    address P = L.first;
+address showAll(listBis L){
+    adrBis P = L.first;
     while (P != nullptr) {
-        cout << "Nama Bus : " << P->info.namaBus << endl;
+        cout << "Nama Bus : " << P->info.namaBis << endl;
         cout << "Rute     : " << P->info.rute << endl;
         cout << "Kapasitas: " << P->info.kapasitas << endl;
         cout << "------------------------" << endl;

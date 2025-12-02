@@ -1,17 +1,18 @@
-#include "bis.h"
 #include <iostream>
+#include "bis.h"
+
 using namespace std;
 
-void createList(List &L){
+void createList(listBis &L){
     L.first = nullptr;
 }
-address createElement(infotype x){
-    adrress P = new elmBis;
+adrBis createElement(Bis x){
+    adrBis P = new elmBis;
     P->info = x;
-    P->next = NULL;
+    P->next = nullptr;
     return P;
 }
-void insertFirst(List &L, address p){
+void insertFirst(listbis &L, adrBis P){
     if (L.first == nullptr) {
         L.first = P;
     } else {
@@ -19,20 +20,20 @@ void insertFirst(List &L, address p){
         L.first = P;
     }
 }
-void insertLast(List &L, address p){
+void insertLast(listBis &L, adrBis P){
     if (L.first == nullptr) {
         L.first = P;
     } else {
-        adrress Q = L.first;
+        adrBis Q = L.first;
         while (Q->next != nullptr) {
             Q = Q->next;
         }
         Q->next = P;
     }
 }
-void insertAfter(List &L, address prec, address p){
-    if (Prec != nullptr) {
-        P->next = Prec->next;
-        Prec->next = P;
+void insertAfter(listBis &L, adrBis prec, adrBis P){
+    if (prec != nullptr) {
+        P->next = prec->next;
+        prec->next = P;
     }
 }

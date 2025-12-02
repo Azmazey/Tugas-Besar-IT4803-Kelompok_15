@@ -1,6 +1,8 @@
 #ifndef BIS_H_INCLUDED
 #define BIS_H_INCLUDED
 
+#include <iostream>
+#include <string>
 using namespace std;
 
 struct Bis{
@@ -8,26 +10,23 @@ struct Bis{
     string rute;
     int kapasitas;
 };
-
-typedef struct elmBis *address;
-
+typedef struct elmBis *adrBis;
 struct elmBis{
     Bis info;
-    address next;
+    adrBis next;
 };
-
 struct listBis{
-    address first;
+    adrBis first;
 };
 
 void createList(listBis &L);
-address createElement(Bis data);
-void insertFirst(listBis &L, address P);
-void insertLast(listBis &L, address P);
-void insertAfter(listBis &L, address prec, address P);
-void deleteFirst(listBis &L, address &P);
-void deleteLast(listBis &L, address &P);
-void deleteAfter(listBis &L, address prec, address &P);
+address createElement(Bis x);
+void insertFirst(listBis &L, adrBis P);
+void insertLast(listBis &L, adrBis P);
+void insertAfter(listBis &L, adrBis prec, adrBis P);
+void deleteFirst(listBis &L, adrBis &P);
+void deleteLast(listBis &L, adrBis &P);
+void deleteAfter(listBis &L, adrBis prec, adrBis &P);
 address findBis(listBis L, string cariNama);
 void showAllBis(listBis L);
 
