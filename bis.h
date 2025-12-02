@@ -31,4 +31,6 @@ void deleteAfter(listBis &L, address prec, address &P);
 address findBis(listBis L, string cariNama);
 void showAllBis(listBis L);
 
+tes
+
 #endif // BIS_H_INCLUDED
