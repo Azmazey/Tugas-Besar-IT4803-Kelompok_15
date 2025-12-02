@@ -25,15 +25,15 @@ void deleteFirstRelasi(listRelasi &L, adrRelasi &R);
 void deleteLastRelasi(listRelasi &L, adrRelasi &R);
 void deleteAfterRelasi(listRelasi &L, adrRelasi Prec, adrRelasi &R);
 
-void showChildOfParent(listRelasi L, adrBis P);
-void showParentOfChild(listRelasi L, adrPenumpang C);
-
-adrRelasi findRelasiByParent(listRelasi L, adrBis P);
-adrRelasi findRelasiByChild(listRelasi L, adrPenumpang C);
+void showPenumpangDariBis(listRelasi L, adrBis P);
+void showBisDariPenumpang(listRelasi L, adrPenumpang C);
 void showAllRelasi(listRelasi L);
 
-int countChildOfParent(listRelasi L, adrBis P);
-int countParentOfChild(listRelasi L, adrPenumpang C);
-int countParentWithoutChild(listRelasi L, listBis LB);
-int countChildWithoutParent(listRelasi L, listPenumpang LP);
+adrRelasi findRelasiByBis(listRelasi L, adrBis C);
+adrRelasi findRelasiByPenumpang(listRelasi L, adrPenumpang P);
+
+int countPenumpangDariBis(listRelasi L, adrBis P);
+int countBisDariPenumpang(listRelasi L, adrPenumpang C);
+int countBisTanpaPenumpang(listRelasi L, listBis LB);
+int countPenumpangTanpaBis(listRelasi L, listPenumpang LP);
 #endif // RELATION_H_INCLUDED

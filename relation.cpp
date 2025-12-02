@@ -3,20 +3,20 @@
 using namespace std;
 
 void createListRelasi(listRelasi &L){
-    L.first = NULL;
-    L.last = NULL;
+    L.first = nullptr;
+    L.last = nullptr;
 }
 adrRelasi createElmRelasi(adrBis P, adrPenumpang C){
     adrRelasi R = new elmRelasi;
     R->parent = P;
     R->child = C;
-    R->next = NULL;
-    R->prev = NULL;
+    R->next = nullptr;
+    R->prev = nullptr;
     return R;
 }
 
 void insertFirstRelasi(listRelasi &L, adrRelasi R){
-    if(L.first == NULL){
+    if(L.first == nullptr){
         L.first = R;
         L.last = R;
     } else {
@@ -27,7 +27,7 @@ void insertFirstRelasi(listRelasi &L, adrRelasi R){
 }
 
 void insertLastRelasi(listRelasi &L, adrRelasi R){
-    if(L.first == NULL){
+    if(L.first == nullptr){
         L.first = R;
         L.last = R;
     } else {
@@ -38,7 +38,7 @@ void insertLastRelasi(listRelasi &L, adrRelasi R){
 }
 
 void insertAfterRelasi(listRelasi &L, adrRelasi Prec, adrRelasi R){
-    if(Prec != NULL){
+    if(Prec != nullptr){
         R->next = Prec->next;
         R->prev = Prec;
 
@@ -54,78 +54,78 @@ void insertAfterRelasi(listRelasi &L, adrRelasi Prec, adrRelasi R){
 
 void deleteFirstRelasi(listRelasi &L, adrRelasi &R){
     R = L.first;
-    if(R != NULL){
+    if(R != nullptr){
         if(L.first == L.last){
-            L.first = NULL;
-            L.last = NULL;
+            L.first = nullptr;
+            L.last = nullptr;
         } else {
             L.first = R->next;
-            L.first->prev = NULL;
+            L.first->prev = nullptr;
         }
-        R->next = NULL;
-        R->prev = NULL;
+        R->next = nullptr;
+        R->prev = nullptr;
     }
 }
 
 void deleteLastRelasi(listRelasi &L, adrRelasi &R){
     R = L.last;
-    if(R != NULL){
+    if(R != nullptr){
         if(L.first == L.last){
-            L.first = NULL;
-            L.last = NULL;
+            L.first = nullptr;
+            L.last = nullptr;
         } else {
             L.last = R->prev;
-            L.last->next = NULL;
+            L.last->next = nullptr;
         }
-        R->next = NULL;
-        R->prev = NULL;
+        R->next = nullptr;
+        R->prev = nullptr;
     }
 }
 
 void deleteAfterRelasi(listRelasi &L, adrRelasi Prec, adrRelasi &R){
-    if(Prec != NULL){
+    if(Prec != nullptr){
         R = Prec->next;
-        if(R != NULL){
+        if(R != nullptr){
             Prec->next = R->next;
 
-            if(R->next != NULL){
+            if(R->next != nullptr){
                 R->next->prev = Prec;
             } else {
                 L.last = Prec;
             }
 
-            R->next = NULL;
-            R->prev = NULL;
+            R->next = nullptr;
+            R->prev = nullptr;
         }
     }
 }
 
-adrRelasi findRelasiByParent(listRelasi L, adrBis P){
+adrRelasi findRelasiByPenumpang(listRelasi L, adrBis P){
     adrRelasi R = L.first;
-    while(R != NULL){
+    while(R != nullptr){
         if(R->parent == P){
             return R;
         }
         R = R->next;
     }
-    return NULL;
+    return nullptr;
 }
 
-adrRelasi findRelasiByChild(listRelasi L, adrPenumpang C){
+adrRelasi findRelasiByBis(listRelasi L, adrPenumpang C){
     adrRelasi R = L.first;
-    while(R != NULL){
+    while(R != nullptr){
         if(R->child == C){
             return R;
         }
         R = R->next;
     }
-    return NULL;
+    return nullptr;
 }
 
-void showChildOfParent(listRelasi L, adrBis P){
+void showPenumpangDariBis(listRelasi L, adrBis P){
     adrRelasi R = L.first;
     cout << "Penumpang dari Bis " << P->info.namaBis << ":\n";
-    while(R != NULL){
+    while(R != nullptr){
         if(R->parent == P){
             cout << "- " << R->child->info.nama << " (Tujuan: " << R->child->info.tujuan << ")\n";
         }
@@ -133,10 +133,10 @@ void showChildOfParent(listRelasi L, adrBis P){
     }
 }
 
-void showParentOfChild(listRelasi L, adrPenumpang C){
+void showBisDariPenumpang(listRelasi L, adrPenumpang C){
     adrRelasi R = L.first;
     cout << "Bis yang dinaiki " << C->info.nama << ":\n";
-    while(R != NULL){
+    while(R != nullptr){
         if(R->child == C){
             cout << "- " << R->parent->info.namaBis << "\n";
         }
@@ -146,17 +146,17 @@ void showParentOfChild(listRelasi L, adrPenumpang C){
 
 void showAllRelasi(listRelasi L){
     adrRelasi R = L.first;
-    while(R != NULL){
+    while(R != nullptr){
         cout << "[Bis: " << R->parent->info.namaBis
              << " -> Penumpang: " << R->child->info.nama << "]\n";
         R = R->next;
     }
 }
 
-int countChildOfParent(listRelasi L, adrBis P){
+int countPenumpangDariBis(listRelasi L, adrBis P){
     adrRelasi R = L.first;
     int count = 0;
-    while(R != NULL){
+    while(R != nullptr){
         if(R->parent == P){
             count = count + 1;
         }
@@ -165,10 +165,10 @@ int countChildOfParent(listRelasi L, adrBis P){
     return count;
 }
 
-int countParentOfChild(listRelasi L, adrPenumpang C){
+int countBisDariPenumpang(listRelasi L, adrPenumpang C){
     adrRelasi R = L.first;
     int count = 0;
-    while(R != NULL){
+    while(R != nullptr){
         if(R->child == C){
             count = count + 1;
         }
@@ -177,15 +177,15 @@ int countParentOfChild(listRelasi L, adrPenumpang C){
     return count;
 }
 
-int countParentWithoutChild(listRelasi L, listBis LB){
+int countBisTanpaPenumpang(listRelasi L, listBis LB){
     adrBis P = LB.first;
     int count = 0;
 
-    while(P != NULL){
+    while(P != nullptr){
         int ada = 0;
         adrRelasi R = L.first;
 
-        while(R != NULL){
+        while(R != nullptr){
             if(R->parent == P){
                 ada = 1;
             }
@@ -202,15 +202,15 @@ int countParentWithoutChild(listRelasi L, listBis LB){
     return count;
 }
 
-int countChildWithoutParent(listRelasi L, listPenumpang LP){
+int countPenumpangTanpaBis(listRelasi L, listPenumpang LP){
     adrPenumpang C = LP.first;
     int count = 0;
 
-    while(C != NULL){
+    while(C != nullptr){
         int ada = 0;
         adrRelasi R = L.first;
 
-        while(R != NULL){
+        while(R != nullptr){
             if(R->child == C){
                 ada = 1;
             }
