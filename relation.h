@@ -36,4 +36,7 @@ int countPenumpangDariBis(listRelasi L, adrBis P);
 int countBisDariPenumpang(listRelasi L, adrPenumpang C);
 int countBisTanpaPenumpang(listRelasi L, listBis LB);
 int countPenumpangTanpaBis(listRelasi L, listPenumpang LP);
+
+void editRelasi(listRelasi &L, adrBis oldBus, adrPenumpang C, adrBis newBus);
+
 #endif // RELATION_H_INCLUDED

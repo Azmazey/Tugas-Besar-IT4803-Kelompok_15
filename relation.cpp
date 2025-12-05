@@ -226,3 +226,40 @@ int countPenumpangTanpaBis(listRelasi L, listPenumpang LP){
 
     return count;
 }
+
+void editRelasi(listRelasi &L, adrBis oldBus, adrPenumpang C, adrBis newBus) {
+    if (L.first == nullptr) {
+        cout << "List relasi kosong.\n";
+        return;
+    }
+
+    adrRelasi R = L.first;
+    bool found = false;
+
+    while (R != nullptr && found == false) {
+        if (R->parent == oldBus && R->child == C) {
+            found = true;
+        } else {
+            R = R->next;
+        }
+    }
+
+    if (found == false) {
+        cout << "Relasi tidak ditemukan.\n";
+        return;
+    }
+
+    adrRelasi temp;
+    if (R == L.first) {
+        deleteFirstRelasi(L, temp);
+    } else if (R->next == nullptr) {
+        deleteLastRelasi(L, temp);
+    } else {
+        deleteAfterRelasi(L, R->prev, temp);
+    }
+
+    adrRelasi baru = createElmRelasi(newBus, C);
+    insertLastRelasi(L, baru);
+
+    cout << "Relasi berhasil diedit.\n";
+}
