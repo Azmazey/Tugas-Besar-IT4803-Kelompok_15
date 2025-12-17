@@ -3,7 +3,7 @@
 #include "bis.h"
 #include "penumpang.h"
 
-typedef struct elmListRelasi *adrRelasi;
+typedef struct elmRelasi *adrRelasi;
 struct elmRelasi{
     adrBis parent;
     adrPenumpang child;
@@ -29,8 +29,8 @@ void showPenumpangDariBis(listRelasi L, adrBis P);
 void showBisDariPenumpang(listRelasi L, adrPenumpang C);
 void showAllRelasi(listRelasi L);
 
-adrRelasi findRelasiByBis(listRelasi L, adrBis C);
-adrRelasi findRelasiByPenumpang(listRelasi L, adrPenumpang P);
+adrRelasi findRelasiByBis(listRelasi L, adrBis P);
+adrRelasi findRelasiByPenumpang(listRelasi L, adrPenumpang C);
 
 int countPenumpangDariBis(listRelasi L, adrBis P);
 int countBisDariPenumpang(listRelasi L, adrPenumpang C);
