@@ -1,71 +1,37 @@
-#include "penumpang.h"
 #include <iostream>
 using namespace std;
+#include "bis.h"
 
-void deleteFirstPenumpang(listPenumpang &L, adrPenumpang &P) {
-    if (L.first == nullptr) {
-        P = nullptr;
-    } else if (L.first == L.last) {
-        P = L.first;
-        L.first = nullptr;
-        L.last = nullptr;
-    } else {
-        P = L.first;
-        L.first = P->next;
-        L.first->prev = nullptr;
-        P->next = nullptr;
-    }
+void createList(listBis &L){
+    L.first = nullptr;
 }
-void deleteLastPenumpang(listPenumpang &L, adrPenumpang &P) {
-    if (L.first == nullptr) {
-        P = nullptr;
-    } else if (L.first == L.last) {
-        P = L.first;
-        L.first = nullptr;
-        L.last = nullptr;
-    } else {
-        P = L.last;
-        L.last = P->prev;
-        L.last->next = nullptr;
-        P->prev = nullptr;
-    }
-}
-void deleteAfterPenumpang(listPenumpang &L, adrPenumpang Prec, adrPenumpang &P) {
-    if (Prec == nullptr || Prec->next == nullptr) {
-        P = nullptr;
-        return;
-    }
 
-    P = Prec->next;
-    adrPenumpang Q = P->next;
-
-    Prec->next = Q;
-
-    if (Q != nullptr) {
-        Q->prev = Prec;
-    } else {
-        L.last = Prec;
-    }
-
+adrBis createElement(Bis x){
+    adrBis P = new elmBis;
+    P->info = x;
     P->next = nullptr;
-    P->prev = nullptr;
+    return P;
 }
-adrPenumpang findPenumpang(listPenumpang L, string nama) {
-    adrPenumpang P = L.first;
-    while (P != nullptr) {
-        if (P->info.nama == nama){
-            return P;
+
+void insertFirst(listBis &L, adrBis P){
+    P->next = L.first;
+    L.first = P;
+}
+
+void insertLast(listBis &L, adrBis P){
+    if(L.first == nullptr){
+        L.first = P;
+    } else {
+        adrBis Q = L.first;
+        while(Q->next != nullptr){
+            Q = Q->next;
         }
-        P = P->next;
+        Q->next = P;
     }
-    return nullptr;
 }
-void showPenumpang(listPenumpang L) {
-    adrPenumpang P = L.first;
-    while(P != nullptr){
-        cout << "Nama   : " << P->info.nama << endl;
-        cout << "Tujuan : " << P->info.tujuan << endl;
-        cout << "------------------" << endl;
-        P = P->next;
+void insertAfter(listBis &L, adrBis Prec, adrBis P){
+    if(Prec != nullptr){
+        P->next = Prec->next;
+        Prec->next = P;
     }
 }
