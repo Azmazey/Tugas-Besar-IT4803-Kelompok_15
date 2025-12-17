@@ -10,9 +10,9 @@ void createListPenumpang(listPenumpang &L){
     L.last = nullptr;
 }
 
-adrPenumpang createElmPenumpang(DataPenumpang data){
-    adrPenumpang P = new elmPenumpang;
-    P->info = data;
+adrPenumpang createElmPenumpang(infotypePenumpang x){
+    adrPenumpang P = new elmlistPenumpang;
+    P->info = x;
     P->next = nullptr;
     P->prev = nullptr;
     return P;
