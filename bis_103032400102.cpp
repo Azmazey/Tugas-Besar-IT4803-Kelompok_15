@@ -39,7 +39,7 @@ void deleteAfter(listBis &L, adrBis prec, adrBis &P){
     }
 }
 
-address findBis(listBis L, string cariNama){
+adrBis findBis(listBis L, string cariNama){
     adrBis P = L.first;
     while (P != nullptr) {
         if (P->info.namaBis == cariNama){
@@ -50,7 +50,7 @@ address findBis(listBis L, string cariNama){
     return nullptr;
 }
 
-address showAllBis(listBis L){
+void showAllBis(listBis L){
     adrBis P = L.first;
     while (P != nullptr) {
         cout << "Nama Bus : " << P->info.namaBis << endl;
