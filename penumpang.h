@@ -31,6 +31,7 @@ void deleteLastPenumpang(listPenumpang &L, adrPenumpang &P);
 void deleteAfterPenumpang(listPenumpang &L, adrPenumpang Prec, adrPenumpang &P);
 
 adrPenumpang findPenumpang(listPenumpang L, string nama);
+
 void showPenumpang(listPenumpang L);
 
 #endif // PENUMPANG_H_INCLUDED
