@@ -1,29 +1,30 @@
 #include "main.h"
+#include <iostream>
+using namespace std;
 
-void menuUser(){
-    int option=-99;
-    while (option != 0) {
+void menuUser(listBis &LB, listPenumpang &LP, listRelasi &LR){
+    int opt;
+    do{
         system("cls");
-        cout << "====== Menu Studi Kasus ====== " << endl;
-        cout << "|| 1. Studi Kasus 1         ||" << endl;
-        cout << "|| 2. Studi Kasus 2         ||" << endl;
-        cout << "|| .....dst                 ||" << endl;
-        cout << "|| 0. back                  ||" << endl;
-        cout << "============================== " << endl;
-        cout << "Choose your option : ";
-        cin >> option;
-        switch(option) {
-           case 1  :
-              cout << "you choose option 1" << endl;
-              // write your code here
+        cout << "MENU USER\n";
+        cout << "1. Lihat Bis\n";
+        cout << "2. Lihat Penumpang\n";
+        cout << "3. Lihat Relasi\n";
+        cout << "0. Back\n";
+        cin >> opt;
 
-              break;
-           case 2  :
-              cout << "you choose option 2" << endl;
-              // write your code here
-
-              break;
-            // continue for another case here
+        if(opt == 1){
+            showAllBis(LB);
+            system("pause");
         }
-    }
-} halo;
+        else if(opt == 2){
+            showPenumpang(LP);
+            system("pause");
+        }
+        else if(opt == 3){
+            showAllRelasi(LR);
+            system("pause");
+        }
+
+    }while(opt != 0);
+}
