@@ -20,14 +20,14 @@ struct listBis{
 };
 
 void createList(listBis &L);
-address createElement(Bis x);
+adrBis createElement(Bis x);
 void insertFirst(listBis &L, adrBis P);
 void insertLast(listBis &L, adrBis P);
 void insertAfter(listBis &L, adrBis prec, adrBis P);
 void deleteFirst(listBis &L, adrBis &P);
 void deleteLast(listBis &L, adrBis &P);
 void deleteAfter(listBis &L, adrBis prec, adrBis &P);
-address findBis(listBis L, string cariNama);
+adrBis findBis(listBis L, string cariNama);
 void showAllBis(listBis L);
 
 
