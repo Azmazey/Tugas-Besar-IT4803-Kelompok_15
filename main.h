@@ -1,12 +1,13 @@
 #ifndef MAIN_H_INCLUDED
 #define MAIN_H_INCLUDED
 
-using namespace std;
+#include "bis.h"
+#include "penumpang.h"
+#include "relation.h"
 
-void menuAdmin();
-void menuParent();
-void menuChild();
+void menuAdmin(listBis &LB, listPenumpang &LP, listRelasi &LR);
+void menuParent(listBis &LB);
+void menuChild(listPenumpang &LP);
+void menuUser(listBis &LB, listPenumpang &LP, listRelasi &LR);
 
-void menuUser();
-#endif // MAIN_H_INCLUDED
-
+#endif
