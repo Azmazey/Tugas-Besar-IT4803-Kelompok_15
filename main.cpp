@@ -1,34 +1,33 @@
 #include <iostream>
 #include "main.h"
+
 using namespace std;
 
-
 int main(){
-    int option=-99;
-    while (option != 0) {
+    listBis LB;
+    listPenumpang LP;
+    listRelasi LR;
+
+    createList(LB);
+    createListPenumpang(LP);
+    createListRelasi(LR);
+
+    int opt;
+    do{
         system("cls");
-        cout << "============ Menu ============ " << endl;
-        cout << "|| 1. admin                 ||" << endl;
-        cout << "|| 2. User                  ||" << endl;
-        cout << "|| 0. exit                  ||" << endl;
-        cout << "============================== " << endl;
-        cout << "Choose your option : ";
-        cin >> option;
-        switch(option) {
-           case 1  :
-              cout << "you choose option 1" << endl;
-              menuAdmin();
-              break;
-           case 2  :
-              cout << "you choose option 2" << endl;
-              menuUser();
-              break;
+        cout << "1. Admin\n";
+        cout << "2. User\n";
+        cout << "0. Exit\n";
+        cin >> opt;
 
-           default :
-              exit(1);
+        if(opt == 1){
+            menuAdmin(LB, LP, LR);
         }
-    }
+        else if(opt == 2){
+            menuUser(LB, LP, LR);
+        }
 
+    }while(opt != 0);
 
     return 0;
 }
