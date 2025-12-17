@@ -50,7 +50,7 @@ address findBis(listBis L, string cariNama){
     return nullptr;
 }
 
-address showAll(listBis L){
+address showAllBis(listBis L){
     adrBis P = L.first;
     while (P != nullptr) {
         cout << "Nama Bus : " << P->info.namaBis << endl;
