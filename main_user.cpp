@@ -1,30 +1,46 @@
-#include "main.h"
 #include <iostream>
+#include "main.h"
+
 using namespace std;
 
-void menuUser(listBis &LB, listPenumpang &LP, listRelasi &LR){
-    int opt;
-    do{
+void menuUser(listBis &LB, listPenumpang &LP){
+    int option = -99;
+    while (option != 0) {
         system("cls");
-        cout << "MENU USER\n";
-        cout << "1. Lihat Bis\n";
-        cout << "2. Lihat Penumpang\n";
-        cout << "3. Lihat Relasi\n";
-        cout << "0. Back\n";
-        cin >> opt;
+        cout << "====== Menu Studi Kasus ====== " << endl;
+        cout << "|| 1. Lihat daftar bis      ||" << endl;
+        cout << "|| 2. Cari bis              ||" << endl;
+        cout << "|| 3. Lihat penumpang       ||" << endl;
+        cout << "|| 0. back                  ||" << endl;
+        cout << "============================== " << endl;
+        cout << "Choose your option : ";
+        cin >> option;
 
-        if(opt == 1){
+        if (option == 1) {
+            cout << "Daftar Bis:" << endl;
             showAllBis(LB);
             system("pause");
         }
-        else if(opt == 2){
+        else if (option == 2) {
+            string nama;
+            cout << "Masukkan nama bis: ";
+            cin >> nama;
+
+            adrBis P = findBis(LB, nama);
+            if (P != nullptr) {
+                cout << "Bis ditemukan!" << endl;
+                cout << "Nama      : " << P->info.namaBis << endl;
+                cout << "Rute      : " << P->info.rute << endl;
+                cout << "Kapasitas : " << P->info.kapasitas << endl;
+            } else {
+                cout << "Bis tidak ditemukan." << endl;
+            }
+            system("pause");
+        }
+        else if (option == 3) {
+            cout << "Daftar Penumpang:" << endl;
             showPenumpang(LP);
             system("pause");
         }
-        else if(opt == 3){
-            showAllRelasi(LR);
-            system("pause");
-        }
-
-    }while(opt != 0);
+    }
 }
