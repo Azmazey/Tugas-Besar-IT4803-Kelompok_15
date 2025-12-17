@@ -12,7 +12,7 @@ adrBis createElement(Bis x){
     P->next = nullptr;
     return P;
 }
-void insertFirst(listbis &L, adrBis P){
+void insertFirst(listBis &L, adrBis P){
     if (L.first == nullptr) {
         L.first = P;
     } else {
