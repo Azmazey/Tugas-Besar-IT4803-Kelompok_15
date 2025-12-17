@@ -50,25 +50,22 @@ void deleteAfterPenumpang(listPenumpang &L, adrPenumpang Prec, adrPenumpang &P) 
     P->next = nullptr;
     P->prev = nullptr;
 }
-adrPenumpang findPenumpang(listPenumpang L, string nik) {
+adrPenumpang findPenumpang(listPenumpang L, string nama) {
     adrPenumpang P = L.first;
     while (P != nullptr) {
-        if (P->info.nik == nik) return P;
+        if (P->info.nama == nama){
+            return P;
+        }
         P = P->next;
     }
     return nullptr;
 }
-void showAllPenumpang(listPenumpang L) {
+void showPenumpang(listPenumpang L) {
     adrPenumpang P = L.first;
-    if (P == nullptr) {
-        cout << "Tidak ada data penumpang.\n";
-        return;
-    }
-
-    while (P != nullptr) {
-        cout << "Nama: " << P->info.nama << endl;
-        cout << "Umur: " << P->info.umur << endl;
-        cout << "--------------------------\n";
+    while(P != nullptr){
+        cout << "Nama   : " << P->info.nama << endl;
+        cout << "Tujuan : " << P->info.tujuan << endl;
+        cout << "------------------" << endl;
         P = P->next;
     }
 }
